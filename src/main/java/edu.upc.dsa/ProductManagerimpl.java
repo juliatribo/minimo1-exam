@@ -135,8 +135,10 @@ public class ProductManagerimpl implements ProductManager {
         List<String> p = o.getProductNames();
         for (int i = 0 ; i < p.size(); i++){
             for (int j = 0 ; j < listProduct.size(); j++){
-                if (p.get(i) == listProduct.get(j).getName())
+                if (p.get(i) == listProduct.get(j).getName()) {
                     listProduct.get(j).addSale();
+                    logger.info("new " + listProduct.get(j).getName() + " added to sales list");
+                }
             }
         }
         return o;

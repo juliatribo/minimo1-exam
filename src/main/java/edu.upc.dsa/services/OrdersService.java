@@ -90,7 +90,7 @@ public class OrdersService {
     })
     @Path("/")
     public Response ProcessOrder() {
-        Order o = pm.processOrder();
+        Order o = this.pm.processOrder();
         if (o == null) return Response.status(404).build();
         else return Response.status(201).build();
     }
@@ -125,7 +125,6 @@ public class OrdersService {
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newOrder(Order o) {
-
         if (o.getUserName()==null)  return Response.status(500).entity(o).build();
         this.pm.newOrder(o);
         return Response.status(201).build();
