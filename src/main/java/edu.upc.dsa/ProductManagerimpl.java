@@ -118,7 +118,7 @@ public class ProductManagerimpl implements ProductManager {
     @Override
     public void newOrder(Order o) {
         logger.info("newOrder()");
-        User user = hmUsers.get(o.getUserName());;
+        User user = hmUsers.get(o.getUserName());
         //user.addOrder(o);
         pendingOrder.add(o);
         cont++;
@@ -135,7 +135,7 @@ public class ProductManagerimpl implements ProductManager {
         List<String> p = o.getProductNames();
         for (int i = 0 ; i < p.size(); i++){
             for (int j = 0 ; j < listProduct.size(); j++){
-                if (p.get(i) == listProduct.get(j).getName()) {
+                if (p.get(i).equals(listProduct.get(j).getName())) {
                     listProduct.get(j).addSale();
                     logger.info("new " + listProduct.get(j).getName() + " added to sales list");
                 }
